@@ -1,0 +1,37 @@
+2018-04-11 10:56:31.0136|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/  
+2018-04-11 10:56:31.0136|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:54505/  0
+2018-04-11 10:56:31.2768|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 320.6737ms 200 
+2018-04-11 10:56:31.7172|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 790.1327ms 404 text/plain
+2018-04-11 10:56:31.7563|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/favicon.ico  
+2018-04-11 10:56:31.7563|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 7.1173ms 404 text/plain
+2018-04-11 10:58:51.1385|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/api/cities/1/pointsofinterest  
+2018-04-11 10:58:51.4183|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API) with arguments (1) - ModelState is Valid
+2018-04-11 10:58:51.4524|INFO|Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor|Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+2018-04-11 10:58:51.7009|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.PointsOfInterestController.GetPointsOfInterest (CityInfo.API) in 467.6911ms
+2018-04-11 10:58:51.7069|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 571.9236ms 200 application/json; charset=utf-8
+2018-04-11 11:04:15.6200|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/api/testdatabase  
+2018-04-11 11:04:28.3569|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (102ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [CityInfoDB];
+2018-04-11 11:04:28.4517|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5 EXEC(N'ALTER DATABASE [CityInfoDB] SET READ_COMMITTED_SNAPSHOT ON');
+2018-04-11 11:04:28.5954|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Cities] (
+    [Id] int NOT NULL IDENTITY,
+    [Description] nvarchar(200),
+    [Name] nvarchar(50) NOT NULL,
+    CONSTRAINT [PK_Cities] PRIMARY KEY ([Id])
+);
+2018-04-11 11:04:28.5954|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [PointsOfInterest] (
+    [Id] int NOT NULL IDENTITY,
+    [CityId] int NOT NULL,
+    [Name] nvarchar(50) NOT NULL,
+    CONSTRAINT [PK_PointsOfInterest] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_PointsOfInterest_Cities_CityId] FOREIGN KEY ([CityId]) REFERENCES [Cities] ([Id]) ON DELETE CASCADE
+);
+2018-04-11 11:04:28.6120|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_PointsOfInterest_CityId] ON [PointsOfInterest] ([CityId]);
+2018-04-11 11:04:28.6120|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.DummyController.TestDatabase (CityInfo.API) with arguments () - ModelState is Valid
+2018-04-11 11:04:28.6295|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2018-04-11 11:04:28.6295|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.DummyController.TestDatabase (CityInfo.API) in 13006.6085ms
+2018-04-11 11:04:28.6295|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 13043.2162ms 200 

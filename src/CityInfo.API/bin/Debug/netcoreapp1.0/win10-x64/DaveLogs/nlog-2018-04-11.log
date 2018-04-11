@@ -1,0 +1,22 @@
+2018-04-11 13:38:57.6130|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/  
+2018-04-11 13:38:57.6130|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:54505/  0
+2018-04-11 13:38:58.0428|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 469.4703ms 200 
+2018-04-11 13:38:58.4103|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 897.5113ms 404 text/plain
+2018-04-11 13:40:02.4001|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/api/testdatabase  
+2018-04-11 13:40:05.0568|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2018-04-11 13:40:05.1020|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.DummyController.TestDatabase (CityInfo.API) with arguments () - ModelState is Valid
+2018-04-11 13:40:05.1200|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2018-04-11 13:40:05.1411|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.DummyController.TestDatabase (CityInfo.API) in 2655.7604ms
+2018-04-11 13:40:05.1481|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2748.8478ms 200 
+2018-04-11 14:58:38.2644|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:54505/  0
+2018-04-11 14:58:38.3135|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/api/testdatabase  
+2018-04-11 14:58:38.2644|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/  
+2018-04-11 14:58:38.4890|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 277.0727ms 200 
+2018-04-11 14:58:38.8429|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 664.0731ms 404 text/plain
+2018-04-11 14:58:40.8703|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (44ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0
+2018-04-11 14:58:40.9124|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.DummyController.TestDatabase (CityInfo.API) with arguments () - ModelState is Valid
+2018-04-11 14:58:40.9304|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2018-04-11 14:58:40.9444|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.DummyController.TestDatabase (CityInfo.API) in 2046.7006ms
+2018-04-11 14:58:40.9444|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2647.0815ms 200 
