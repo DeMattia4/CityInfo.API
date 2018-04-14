@@ -13,7 +13,7 @@ namespace CityInfo.API.Entities
             : base(options)
         {
             // Ensure db is created if it doesn't already exist
-            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         public DbSet<City> Cities { get; set; }

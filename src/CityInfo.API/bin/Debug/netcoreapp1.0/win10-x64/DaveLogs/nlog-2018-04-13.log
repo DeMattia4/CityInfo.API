@@ -1,0 +1,17 @@
+2018-04-13 11:09:33.7963|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:54505/  0
+2018-04-13 11:09:33.7963|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/  
+2018-04-13 11:09:34.1115|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 367.5472ms 200 
+2018-04-13 11:09:34.5371|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 835.1796ms 404 text/plain
+2018-04-13 11:09:47.4525|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/api/testdatabase  
+2018-04-13 11:09:50.0791|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-04-13 11:09:50.0902|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'__EFMigrationsHistory');
+2018-04-13 11:09:50.1202|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2018-04-13 11:09:50.1753|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executing action method CityInfo.API.Controllers.DummyController.TestDatabase (CityInfo.API) with arguments () - ModelState is Valid
+2018-04-13 11:09:50.2013|INFO|Microsoft.AspNetCore.Mvc.StatusCodeResult|Executing HttpStatusCodeResult, setting HTTP status code 200
+2018-04-13 11:09:50.2334|INFO|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|Executed action CityInfo.API.Controllers.DummyController.TestDatabase (CityInfo.API) in 2679.5264ms
+2018-04-13 11:09:50.2334|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 2788.6737ms 200 

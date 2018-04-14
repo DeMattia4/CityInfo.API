@@ -1,0 +1,54 @@
+2018-04-14 14:02:56.9671|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:54505/  0
+2018-04-14 14:02:56.9671|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/  
+2018-04-14 14:02:57.5898|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 651.7665ms 200 
+2018-04-14 14:02:58.8145|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 1957.7318ms 404 text/plain
+2018-04-14 14:27:13.9508|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Cities] AS [c])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2018-04-14 14:27:14.3829|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (22ms) [Parameters=[@p0='?' (Size = 200), @p1='?' (Size = 50), @p2='?' (Size = 200), @p3='?' (Size = 50), @p4='?' (Size = 200), @p5='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DECLARE @toInsert2 TABLE ([Description] nvarchar(200), [Name] nvarchar(50), [_Position] [int]);
+INSERT INTO @toInsert2
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2);
+
+DECLARE @inserted2 TABLE ([Id] int, [Description] nvarchar(200), [Name] nvarchar(50), [_Position] [int]);
+MERGE [Cities] USING @toInsert2 AS i ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Description], [Name])
+VALUES (i.[Description], i.[Name])
+OUTPUT INSERTED.[Id], INSERTED.[Description], INSERTED.[Name], i._Position
+INTO @inserted2;
+
+SELECT [Id] FROM @inserted2
+ORDER BY _Position;
+2018-04-14 14:27:14.4160|INFO|Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommandBuilderFactory|Executed DbCommand (3ms) [Parameters=[@p6='?', @p7='?' (Size = 200), @p8='?' (Size = 50), @p9='?', @p10='?' (Size = 200), @p11='?' (Size = 50), @p12='?', @p13='?' (Size = 200), @p14='?' (Size = 50), @p15='?', @p16='?' (Size = 200), @p17='?' (Size = 50), @p18='?', @p19='?' (Size = 200), @p20='?' (Size = 50), @p21='?', @p22='?' (Size = 200), @p23='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DECLARE @toInsert5 TABLE ([CityId] int, [Description] nvarchar(200), [Name] nvarchar(50), [_Position] [int]);
+INSERT INTO @toInsert5
+VALUES (@p6, @p7, @p8, 0),
+(@p9, @p10, @p11, 1),
+(@p12, @p13, @p14, 2),
+(@p15, @p16, @p17, 3),
+(@p18, @p19, @p20, 4),
+(@p21, @p22, @p23, 5);
+
+DECLARE @inserted5 TABLE ([Id] int, [CityId] int, [Description] nvarchar(200), [Name] nvarchar(50), [_Position] [int]);
+MERGE [PointsOfInterest] USING @toInsert5 AS i ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CityId], [Description], [Name])
+VALUES (i.[CityId], i.[Description], i.[Name])
+OUTPUT INSERTED.[Id], INSERTED.[CityId], INSERTED.[Description], INSERTED.[Name], i._Position
+INTO @inserted5;
+
+SELECT [Id] FROM @inserted5
+ORDER BY _Position;
+2018-04-14 14:27:15.2092|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 DEBUG http://localhost:54505/  0
+2018-04-14 14:27:15.2092|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request starting HTTP/1.1 GET http://localhost:54505/  
+2018-04-14 14:27:15.3316|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 147.083ms 200 
+2018-04-14 14:27:15.7386|INFO|Microsoft.AspNetCore.Hosting.Internal.WebHost|Request finished in 595.1933ms 404 text/plain
