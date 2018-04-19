@@ -64,6 +64,8 @@ namespace CityInfo.API
             // Add Db Context
             var connectionString = Startup.Configuration["connectionStrings:cityInfoDBConnectionString"];
             services.AddDbContext<CityInfoContext>(o => o.UseSqlServer(connectionString));
+
+            services.AddScoped<ICityInfoRepository, CityInfoRepository>();
         }
 
 
@@ -92,12 +94,16 @@ namespace CityInfo.API
             cityInfoContext.EnsureSeedDataForContext();
 
             app.UseStatusCodePages();
-            app.UseMvc();
 
-            //app.Run((context) =>
-            //{
-            //    throw new Exception("Example exception");
-            //});
+            // Set up AutoMapper to connect to database entities
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Entities.City, Models.CityWithoutPointsOfInterestDto>();
+                cfg.CreateMap<Entities.City, Models.CityDto>();
+                cfg.CreateMap<Entities.PointOfInterest, Models.PointOfInterestDto>();
+            });
+
+            app.UseMvc();
         }
     }
 }
