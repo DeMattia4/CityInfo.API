@@ -18,6 +18,14 @@ namespace CityInfo.API.Services
         }
 
 
+        // Method to Create Point of Interest for City
+        public void AddPointOfInterestForCity(int cityId, PointOfInterest pointOfInterest)
+        {
+            var city = GetCity(cityId, false);
+            city.PointsOfInterest.Add(pointOfInterest);
+        }
+
+
         // Method to tell if a City exists
         public bool CityExists(int cityId)
         {
@@ -59,5 +67,18 @@ namespace CityInfo.API.Services
         }
 
 
+
+        // Method to Delete a Point of Interest
+        public void DeletePointOfInterest(PointOfInterest pointOfInterest)
+        {
+            _context.PointsOfInterest.Remove(pointOfInterest);
+        }
+
+
+        // Method to Save values in database and return true if successfull
+        public bool Save()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
     }
 }
